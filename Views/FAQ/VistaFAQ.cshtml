@@ -1,0 +1,487 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Tixtly</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            background-color: black;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #adff44;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+
+            .search-bar input {
+                padding: 5px;
+                border: none;
+                border-radius: 5px;
+                margin-right: 5px;
+            }
+
+            .search-bar button {
+                background-color: #000;
+                color: #A8FF2D;
+                border: none;
+                padding: 5px 10px;
+                cursor: pointer;
+            }
+
+        .user-menu {
+            position: relative;
+            display: inline-block;
+        }
+
+        .user-button {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 8px 50px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 5px;
+        }
+
+            .user-button i {
+                font-size: 14px;
+            }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 250px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            z-index: 1;
+            top: 100%;
+            right: 0;
+        }
+
+            .dropdown-content a {
+                color: black;
+                padding: 10px;
+                text-decoration: none;
+                display: block;
+                font-size: 14px;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #adff44;
+                }
+
+        /* Mostrar menú cuando la clase 'show' está activa */
+        .show {
+            display: block;
+        }
+
+        .btn-buscar {
+            border-radius: 5px;
+            height: 26px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #adff44; /* Fondo verde para la barra principal */
+            padding: 10px 20px;
+            color: black;
+        }
+
+            nav ul {
+                list-style: none;
+                display: flex;
+                gap: 15px;
+                margin: 0;
+                padding: 0;
+            }
+
+                nav ul li {
+                    cursor: pointer;
+                }
+
+        .nav-right {
+            background-color: black; /* Fondo negro para la sección derecha */
+            padding: 10px 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+            .nav-right a {
+                color: white; /* Letras blancas para mejor contraste */
+                text-decoration: none;
+                margin-left: 15px;
+            }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        } 
+
+        .header .logo-sitio {
+            max-width: 100%;
+            height: auto;
+            max-height: 10px;
+            object-fit: contain;
+        }
+
+        footer {
+            background: #222;
+            padding: 20px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .Contenedor-FAQ {
+            display: flex;
+            margin-top: 2%;
+        }
+
+        .Informacion {
+            display: inline-block;
+            vertical-align: top;
+            padding: 5%;
+            width: 28%;
+            font-size: 1.2em;
+            border-bottom-left-radius: 60px;
+            font-family: 'Times New Roman';
+            margin-left: -80px;
+        }
+
+        .ImagenIndex {
+            display: inline-block;
+            vertical-align: middle;
+            padding: 5%;
+            font-size: 1.2em;
+            border-bottom-right-radius: 60px;
+            margin-left: 120px;
+        }
+
+        .highlight {
+            color: #adff44;
+            font-weight: bold;
+            font-size: 26px;
+        }
+
+        .acordeon {
+            width: 400px;
+            border-top: 1px solid #ccc;
+        }
+
+        .acordeon-item {
+            border-bottom: 1px solid #ccc;
+        }
+
+        .acordeon-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+            .acordeon-header:hover {
+                color: #adff44; /* Cambia el color del texto al pasar el mouse */
+            }
+
+        .acordeon-content {
+            display: none;
+            padding: 10px;
+            background: black;
+        }
+
+        .icono {
+            transition: transform 0.3s;
+        }
+
+        .activo .icono {
+            transform: rotate(180deg);
+        }
+
+
+
+
+        .register-form {
+            background: #0e0e0e;
+            padding: 30px;
+            border-radius: 10px;
+            width: 800px;
+            height: 400px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            margin-left: 180px;
+        }
+
+        /* Añadir estilos para las columnas */
+        .input-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            margin-left: 30px;
+        }
+
+        /* Crear dos columnas dentro del formulario */
+        .input-column {
+            display: flex;
+            flex-direction: column;
+            width: 45%; /* Ajusta el tamaño de las columnas */
+            margin-right: 40px;
+        }
+
+        .input-container {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+            .input-container input {
+                width: 100%;
+                padding: 10px 40px 10px 15px; /* Ajusta el padding derecho */
+                border: none;
+                border-radius: 5px;
+                background: #424347;
+                color: white !important;
+                font-size: 14px;
+            }
+
+                .input-container input::placeholder {
+                    color: white !important; /* Cambia el color del placeholder a blanco */
+                    font-weight: bold;
+                }
+
+
+            .input-container i {
+                position: absolute;
+                right: 15px; /* Ubica el icono dentro del campo sin superponer */
+                top: 50%;
+                transform: translateY(-50%);
+                color: #A8FF2A;
+            }
+
+        .register-btn {
+            background: #A8FF2A;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        /* Separa las columnas */
+        .form-registro {
+            display: flex;
+            justify-content: space-between;
+            background-color: #0e0e0e;
+            height: 100px;
+        }
+        /* Botón */
+        .btn-registrarse {
+            background-color: #A7FF33;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+            width: 200px;
+            margin-left: 100px;
+        }
+
+        .style-textarea {
+            background-color: #424347;
+            color: white; /* Texto en blanco */
+            border: 1px;
+            border-radius: 5px;
+            margin-left: -30px;
+            padding: 10px;
+        }
+
+            .style-textarea::placeholder {
+                color: white !important;
+                font-weight: bold;      
+                
+            }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <img src="@Url.Action("ObtenerLogoSitio", "Cliente")" alt="Logo del sitio" class="logo-sitio" style="max-height: 85px; width: auto;" />
+        </div>
+
+        <div class="search-bar">
+            <i class="fas fa-search" style="margin-right:10px; color:black"></i>
+            <input type="text" style="margin-right: 100px; width:300px" placeholder="Buscar...">
+            <button class="btn-buscar" style="margin-left:-90px; color:#adff44"> BUSCAR</button>
+        </div>
+
+        <div class="user-menu">
+            <button class="user-button" onclick="toggleDropdown()">
+                <i class="fas fa-user" style="color:#adff44; margin-right:20px"></i>NOMBRE<i class="fas fa-chevron-down" style="color:#adff44; margin-left:20px"></i>
+            </button>
+            <div id="userDropdown" class="dropdown-content">
+                <a href="#">Mi Cuenta</a>
+                <a href="#">Cerrar Sesión</a>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li>Conciertos</li>
+            <li>Deportes</li>
+            <li>Teatro</li>
+            <li>Comedia</li>
+            <li>Culturales</li>
+            <li>Familiares</li>
+            <li>Congresos</li>
+            <li>Festivales</li>
+        </ul>
+        <div class="nav-right">
+            <a href="#">Puntos de venta</a>
+            <a href="#">Ayuda</a>
+        </div>
+    </nav>
+    <main>
+        <p style="font-size: 34px;">Preguntas <span class="highlight">frecuentes</span></p>
+        <div class="Contenedor-FAQ">
+            <section class="ImagenIndex">
+                <img src="~/img/ConciertoFAQ.png" width="380" , height="480" style="border-radius: 15px;">
+            </section>
+
+            <section class="Informacion">
+                <div class="acordeon">
+                    <div class="acordeon-item">
+                        <div class="acordeon-header">
+                            <span>Sección 1</span>
+                            <i class="icono fas fa-chevron-down"></i>
+                        </div>
+                        <div class="acordeon-content">
+                            <p>Contenido de la primera sección.</p>
+                        </div>
+                    </div>
+
+                    <div class="acordeon-item">
+                        <div class="acordeon-header">
+                            <span>Sección 2</span>
+                            <i class="icono fas fa-chevron-down"></i>
+                        </div>
+                        <div class="acordeon-content">
+                            <p>Contenido de la segunda sección.</p>
+                        </div>
+                    </div>
+
+                    <div class="acordeon-item">
+                        <div class="acordeon-header">
+                            <span>Sección 3</span>
+                            <i class="icono fas fa-chevron-down"></i>
+                        </div>
+                        <div class="acordeon-content">
+                            <p>Contenido de la tercera sección.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section class="register-form">
+            <br />
+            <p style="font-size: 26px;">¿Tienes un inconveniente? <span class="highlight">Escríbenos</span></p>
+            <br />
+            <br />
+            <form class="form-registro">
+                <div class="input-column">
+                    <div class="input-group">
+                        <div class="input-container">
+                            <input type="text" id="Nombre" name="Nombre" placeholder="Identificación">
+                            <i class="fa fa-id-card"></i>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-container">
+                            <input type="email" id="Email" name="Email" placeholder="Numero de compra">
+                            <i class="fas fa-barcode"></i>
+                        </div>
+                    </div>                 
+                </div>
+
+                <div class="input-column">
+                    <div class="input-group">
+                        <div>                 
+                            <textarea id="descripcion" name="descripcion" rows="6" cols="50" placeholder="Descripción" class="style-textarea"></textarea>
+                        </div>
+                    </div>             
+                    <button type="submit" class="btn-registrarse">ENVIAR</button>
+                </div>
+            </form>
+        </section>
+       
+    </main>
+    <script>
+        document.querySelectorAll('.acordeon-header').forEach(header => {
+            header.addEventListener('click', function () {
+                const content = this.nextElementSibling;
+                const icono = this.querySelector('.icono');
+
+                document.querySelectorAll('.acordeon-content').forEach(item => {
+                    if (item !== content) {
+                        item.style.display = 'none';
+                        item.previousElementSibling.classList.remove('activo');
+                    }
+                });
+
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                this.classList.toggle('activo');
+            });
+        });
+    </script>
+    <footer>
+        <div class="info">
+            <p>¡Somos <span class="highlight">Tixtly!</span></p>
+            <p>Transferencias Seguras</p>
+            <p>Entradas 100% digitales</p>
+        </div>
+        <div class="contact">
+            <p>Cartago, Costa Rica</p>
+            <p>servicio_alcliente@tixtly.com</p>
+            <p>+506 70-40-65-89</p>
+        </div>
+        <div class="social">
+            <p>Síguenos</p>
+        </div>
+    </footer>
+</body>
+</html>

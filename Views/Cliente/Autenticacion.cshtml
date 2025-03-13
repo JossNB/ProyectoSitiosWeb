@@ -1,0 +1,208 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autenticación</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/img/ConciertoAutenticacion.jpg');
+            background-size: 100%;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #adff44;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            color: black;
+        }
+
+        .header .titulo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav button {
+            background: black;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .autenticacion-form {
+            background: none;
+            background-color: none;
+            padding: 30px;
+            border-radius: 10px;
+            width: 400px;
+            height: 400px;
+            box-shadow: none;
+            box-sizing: border-box;
+        }
+
+        /* Añadir estilos para las columnas */
+        .input-group {
+            width: 80%; /* Los inputs deben ocupar todo el ancho disponible */
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            margin-left: 40px;
+        }
+
+        .btn-iniciar {
+            background-color: black;
+            color: white;
+            border-radius: 20px;
+        }
+
+        .btn-registrar {
+            background-color: transparent;
+            border-radius: 20px;
+            color: black;
+        }
+
+        footer {
+            background: #222;
+            padding: 20px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .header .logo-sitio {
+            max-width: 100%;
+            height: auto;
+            max-height: 10px;
+            object-fit: contain;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            border: 10px solid #adff44;
+            padding: 20px;
+            margin-left: -132px;
+            text-align: center;
+            border-radius: 20px;
+            color: white;
+            width: 600px;
+            height: 300px;
+        }
+
+        .highlight {
+            color: #adff44;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .input-container {
+            position: relative;
+            margin: 20px 0;
+            margin-bottom: 60px;
+            margin-top: 40px;
+        }
+
+        input {
+            width: 45%;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            background: #adff44;
+            text-align: center;
+        }
+
+        .warning-icon {
+            position: absolute;
+            right: 175px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: black;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 2px 6px;
+            border-radius: 50%;
+        }
+
+        .btn {
+            background: #444;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+            .btn:hover {
+                background: #666;
+            }
+
+    </style>
+</head>
+<body>
+    <header>
+        <img src="@Url.Action("ObtenerLogoSitio", "Cliente")" alt="Logo del sitio" class="logo-sitio" style="max-height: 85px; width: auto;" />
+
+        <h2 class="titulo">Mi cuenta</h2>
+        <nav>
+            <div class="acciones">
+                <button class="btn-iniciar">INICIAR SESIÓN</button>
+                <button class="btn-registrar">REGÍSTRATE</button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="autenticacion-form">
+            <form>
+                <div class="container">
+                    <br />
+                    <br />
+                    <p style="font-size: 18px;">Ingresa el código que fue enviado a <span class="highlight">tu correo electrónico</span></p>
+                    <div class="input-container">
+                        <input type="text" placeholder=" " id="code" maxlength="6" pattern="\d{6}" title="Debe ingresar exactamente 6 números" required>
+                        <span class="warning-icon">!</span>
+                    </div>
+                    <button class="btn">VERIFICAR</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="info">
+            <p>¡Somos <span class="highlight">Tixtly!</span></p>
+            <p>Transferencias Seguras</p>
+            <p>Entradas 100% digitales</p>
+        </div>
+        <div class="contact">
+            <p>Cartago, Costa Rica</p>
+            <p>servicio_alcliente@tixtly.com</p>
+            <p>+506 70-40-65-89</p>
+        </div>
+        <div class="social">
+            <p>Síguenos</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,451 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambio de Contraseña</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('@Url.Action("ObtenerFondoMenu", "PanelCliente")');
+            background-size: 100%;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #adff44;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            color: black;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+
+            .search-bar input {
+                padding: 5px;
+                border: none;
+                border-radius: 5px;
+                margin-right: 5px;
+            }
+
+            .search-bar button {
+                background-color: #000;
+                color: #A8FF2D;
+                border: none;
+                padding: 5px 10px;
+                cursor: pointer;
+            }
+
+        .user-menu {
+            position: relative;
+            display: inline-block;
+        }
+
+        .user-button {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 8px 50px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 5px;
+        }
+
+            .user-button i {
+                font-size: 14px;
+            }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 250px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            z-index: 1;
+            top: 100%;
+            right: 0;
+        }
+
+            .dropdown-content a {
+                color: black;
+                padding: 10px;
+                text-decoration: none;
+                display: block;
+                font-size: 14px;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #adff44;
+                }
+
+        /* Mostrar menú cuando la clase 'show' está activa */
+        .show {
+            display: block;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #adff44; /* Fondo verde para la barra principal */
+            padding: 10px 20px;
+            color: black;
+        }
+
+            nav ul {
+                list-style: none;
+                display: flex;
+                gap: 15px;
+                margin: 0;
+                padding: 0;
+            }
+
+                nav ul li {
+                    cursor: pointer;
+                }
+
+        .nav-right {
+            background-color: black; /* Fondo negro para la sección derecha */
+            padding: 10px 20px;
+            display: flex;
+            gap: 15px;
+
+        }
+
+        .nav-right a {
+                color: white; /* Letras blancas para mejor contraste */
+                text-decoration: none;
+                margin-left: 15px;
+        }
+
+
+
+        .back-button button {
+            display: flex;
+            align-items: center;
+            background-color: #A8FF2D;
+            color: #000;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        .back-button i {
+            margin-right: 5px;
+        }
+
+        .header .logo-sitio {
+            max-width: 100%;
+            height: auto;
+            max-height: 10px;
+            object-fit: contain;
+        }
+
+        .btn-buscar{
+            border-radius: 5px;
+            height: 26px;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #222;
+            padding: 20px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .arrow-icon {
+            background-color: #adff44; /* Color verde */
+            color: black; /* Color de la flecha */
+            border-radius: 50%; /* Hace que el fondo sea un círculo */
+            padding: 5px; /* Tamaño del círculo */
+            font-size: 20px; /* Tamaño de la flecha */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px; /* Tamaño del círculo */
+            height: 35px; /* Tamaño del círculo */
+            margin-left: -860px;
+        }
+
+
+        .register-form {
+            background: #0e0e0e;
+            padding: 30px;
+            border-radius: 10px;
+            width: 800px;
+            height: 300px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Añadir estilos para las columnas */
+        .input-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            margin-left: 30px;
+        }
+
+        /* Crear dos columnas dentro del formulario */
+        .input-column {
+            display: flex;
+            flex-direction: column;
+            width: 45%; /* Ajusta el tamaño de las columnas */
+            margin-right: 40px;
+        }
+
+        .input-container {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+            .input-container input {
+                width: 100%;
+                padding: 10px 40px 10px 15px; /* Ajusta el padding derecho */
+                border: none;
+                border-radius: 5px;
+                background: #424347;
+                color: white !important;
+                font-size: 14px;
+            }
+
+                .input-container input::placeholder {
+                    color: white !important; /* Cambia el color del placeholder a blanco */
+                    font-weight: bold;
+                }
+
+
+            .input-container i {
+                position: absolute;
+                right: 15px; /* Ubica el icono dentro del campo sin superponer */
+                top: 50%;
+                transform: translateY(-50%);
+                color: #A8FF2A;
+            }
+
+
+        /* Separa las columnas */
+        .form-registro {
+            display: flex;
+            justify-content: space-between;
+            background-color: #0e0e0e;
+            height: 100px;
+        }
+
+        .btn-form {
+            background-color: #A7FF33;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+            width: 200px;
+            margin-left: 65px;
+        }
+        /* Estilo de la lista sin puntos */
+        .card-body ul {
+            padding-left: 0;
+            margin: 0;
+            list-style: none; /* Elimina las viñetas de la lista */
+            margin-bottom: 13px;
+        }
+
+        .card-body li {
+            font-size: 1rem;
+            margin-bottom: 12px; /* Espacio entre los elementos */
+            position: relative;
+        }
+
+            /* Elimina cualquier ícono o marcador antes de los items */
+            .card-body li::before {
+                content: none; /* Elimina cualquier contenido o marcador */
+            }
+
+        .card-body li {
+            font-size: 1rem;
+            color: white;
+            font-size: 14px;
+            padding-left: 15px; /* Añadir un poco de espacio a la izquierda */
+        }
+
+        /* Botón */
+        .btn-actualizar {
+            background-color: #A7FF33;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+            width: 180px;
+            margin-left: 35px;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <img src="@Url.Action("ObtenerLogoSitio", "Cliente")" alt="Logo del sitio" class="logo-sitio" style="max-height: 85px; width: auto;" />
+        </div>
+
+        <div class="search-bar">
+            <i class="fas fa-search" style="margin-right:10px; color:black"></i>
+            <input type="text" style="margin-right: 100px; width:300px" placeholder="Buscar...">
+            <button class="btn-buscar" style="margin-left:-90px; color:#adff44"> BUSCAR</button>
+        </div>
+
+        <div class="user-menu">
+            <button class="user-button" onclick="toggleDropdown()">
+                <i class="fas fa-user" style="color:#adff44; margin-right:20px"></i>NOMBRE<i class="fas fa-chevron-down" style="color:#adff44; margin-left:20px"></i>
+            </button>
+            <div id="userDropdown" class="dropdown-content">
+                <a href="#">Mi Cuenta</a>
+                <a href="#">Cerrar Sesión</a>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li>Conciertos</li>
+            <li>Deportes</li>
+            <li>Teatro</li>
+            <li>Comedia</li>
+            <li>Culturales</li>
+            <li>Familiares</li>
+            <li>Congresos</li>
+            <li>Festivales</li>
+        </ul>
+        <div class="nav-right">
+            <a href="#">Puntos de venta</a>
+            <a href="#">Ayuda</a>
+        </div>
+    </nav>
+    <br />
+    <br />
+    <div class="back-button">
+        <i class="fas fa-arrow-left arrow-icon"></i><p style="display:inline"> Información personal</p>
+    </div>
+    <main>
+        <section class="register-form">
+            <br />
+            <br />
+            <h2 style="margin-top:10px">Editar perfil</h2>
+            <br />
+            <form class="form-registro">
+                <div class="input-column">
+                    <div class="input-group">
+                        <div class="input-container">
+                            <input type="text" id="Nombre" name="Nombre" placeholder="Nombre">
+                            <i class="fa fa-user"></i>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-container">
+                            <input type="date" id="Nombre" name="Nombre" placeholder="Nombre">
+                        </div>
+                    </div>                 
+                </div>
+
+                <div class="input-column">
+                    <div class="input-group">
+                        <div class="input-container">
+                            <input type="text" id="Apellidos" name="Apellidos" placeholder="Apellidos">
+                            <i class="fa fa-user"></i>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-container">
+                            <input type="tel" id="Telefono" name="Telefono" placeholder="Teléfono">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                    </div>     
+                    <button type="submit" class="btn-actualizar">ACTUALIZAR DATOS</button>
+                </div>
+
+
+                <div class="input-column">
+                    <div class="input-group">
+                        <div class="input-container">
+                            <input type="text" id="ClienteID" name="ClienteID" placeholder="Identificación">
+                            <i class="fa fa-id-card"></i>
+                        </div>
+                    </div>
+                   <div class="input-column">
+                        <select id="opciones" name="opciones">
+                            <option value="" disabled selected>Provincia</option>
+                            <option value="opcion1">Opción 1</option>
+                            <option value="opcion2">Opción 2</option>
+                            <option value="opcion3">Opción 3</option>
+                            <option value="opcion4">Opción 4</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
+    <script>
+        function toggleDropdown() {
+            document.getElementById("userDropdown").classList.toggle("show");
+        }
+
+        // Cerrar el dropdown si el usuario hace clic fuera de él
+        window.onclick = function (event) {
+            if (!event.target.closest('.user-menu')) {
+                document.getElementById("userDropdown").classList.remove("show");
+            }
+        };
+    </script>
+    <footer>
+        <div class="info">
+            <p>¡Somos <span class="highlight">Tixtly!</span></p>
+            <p>Transferencias Seguras</p>
+            <p>Entradas 100% digitales</p>
+        </div>
+        <div class="contact">
+            <p>Cartago, Costa Rica</p>
+            <p>servicio_alcliente@tixtly.com</p>
+            <p>+506 70-40-65-89</p>
+        </div>
+        <div class="social">
+            <p>Síguenos</p>
+        </div>
+    </footer>
+</body>
+</html>

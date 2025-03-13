@@ -1,0 +1,63 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = TixtlySW
+build_property.RootNamespace = TixtlySW
+build_property.ProjectDir = C:\Users\Liz89\Documents\Cuatrimestre 6\Sitios web\Proyecto\Carpeta proyecto\TixtlySW\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Liz89\Documents\Cuatrimestre 6\Sitios web\Proyecto\Carpeta proyecto\TixtlySW
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Liz89/Documents/Cuatrimestre 6/Sitios web/Proyecto/Carpeta proyecto/TixtlySW/Views/Cliente/Autenticacion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxBdXRlbnRpY2FjaW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Liz89/Documents/Cuatrimestre 6/Sitios web/Proyecto/Carpeta proyecto/TixtlySW/Views/Cliente/InicioSesion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxJbmljaW9TZXNpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Liz89/Documents/Cuatrimestre 6/Sitios web/Proyecto/Carpeta proyecto/TixtlySW/Views/Cliente/RecuperacionContrasenia.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxSZWN1cGVyYWNpb25Db250cmFzZW5pYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Liz89/Documents/Cuatrimestre 6/Sitios web/Proyecto/Carpeta proyecto/TixtlySW/Views/Cliente/RecuperacionVista.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxSZWN1cGVyYWNpb25WaXN0YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Liz89/Documents/Cuatrimestre 6/Sitios web/Proyecto/Carpeta proyecto/TixtlySW/Views/Cliente/RegistroCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxSZWdpc3Ryb0NsaWVudGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Liz89/Documents/Cuatrimestre 6/Sitios web/Proyecto/Carpeta proyecto/TixtlySW/Views/FAQ/VistaFAQ.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRkFRXFZpc3RhRkFRLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Liz89/Documents/Cuatrimestre 6/Sitios web/Proyecto/Carpeta proyecto/TixtlySW/Views/PagoCliente/ConfirmacionPago.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnb0NsaWVudGVcQ29uZmlybWFjaW9uUGFnby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Liz89/Documents/Cuatrimestre 6/Sitios web/Proyecto/Carpeta proyecto/TixtlySW/Views/PanelCliente/CambioContrasenia.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxDbGllbnRlXENhbWJpb0NvbnRyYXNlbmlhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Liz89/Documents/Cuatrimestre 6/Sitios web/Proyecto/Carpeta proyecto/TixtlySW/Views/PanelCliente/InformacionCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxDbGllbnRlXEluZm9ybWFjaW9uQ2xpZW50ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Liz89/Documents/Cuatrimestre 6/Sitios web/Proyecto/Carpeta proyecto/TixtlySW/Views/PanelCliente/MenuPrincipal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxDbGllbnRlXE1lbnVQcmluY2lwYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Liz89/Documents/Cuatrimestre 6/Sitios web/Proyecto/Carpeta proyecto/TixtlySW/Views/SinRegistro/InicioSinRegistro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2luUmVnaXN0cm9cSW5pY2lvU2luUmVnaXN0cm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 

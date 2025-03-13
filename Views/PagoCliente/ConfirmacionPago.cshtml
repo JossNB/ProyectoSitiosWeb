@@ -1,0 +1,290 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Tixtly</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            background-color: black;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #adff44;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+
+            .search-bar input {
+                padding: 5px;
+                border: none;
+                border-radius: 5px;
+                margin-right: 5px;
+            }
+
+            .search-bar button {
+                background-color: #000;
+                color: #A8FF2D;
+                border: none;
+                padding: 5px 10px;
+                cursor: pointer;
+            }
+
+        .user-menu {
+            position: relative;
+            display: inline-block;
+        }
+
+        .user-button {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 8px 50px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 5px;
+        }
+
+            .user-button i {
+                font-size: 14px;
+            }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 250px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            z-index: 1;
+            top: 100%;
+            right: 0;
+        }
+
+            .dropdown-content a {
+                color: black;
+                padding: 10px;
+                text-decoration: none;
+                display: block;
+                font-size: 14px;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #adff44;
+                }
+
+        /* Mostrar menú cuando la clase 'show' está activa */
+        .show {
+            display: block;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #adff44; /* Fondo verde para la barra principal */
+            padding: 10px 20px;
+            color: black;
+        }
+
+            nav ul {
+                list-style: none;
+                display: flex;
+                gap: 15px;
+                margin: 0;
+                padding: 0;
+            }
+
+                nav ul li {
+                    cursor: pointer;
+                }
+
+        .nav-right {
+            background-color: black; /* Fondo negro para la sección derecha */
+            padding: 10px 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+            .nav-right a {
+                color: white; /* Letras blancas para mejor contraste */
+                text-decoration: none;
+                margin-left: 15px;
+            }
+
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+       
+        .header .logo-sitio {
+            max-width: 100%;
+            height: auto;
+            max-height: 10px;
+            object-fit: contain;
+        }
+
+        .titulo-compras{
+            margin-right: 800px;
+            margin-top: 40px;
+        }
+
+        .titulo-bienvenida{
+            margin-right: 650px;
+        }
+
+        footer {
+            background: #222;
+            padding: 20px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .btn-buscar {
+            border-radius: 5px;
+            height: 26px;
+            font-weight: bold;
+        }
+
+        .autenticacion-form {
+            background: none;
+            background-color: none;
+            padding: 30px;
+            border-radius: 10px;
+            width: 400px;
+            height: 400px;
+            box-shadow: none;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            border: 10px solid #adff44;
+            padding: 20px;
+            margin-left: 250px;
+            text-align: center;
+            border-radius: 20px;
+            color: white;
+            width: 600px;
+            height: 300px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .icon {
+            font-size: 50px;
+            color: #000;
+            background-color: #adff44;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 16px;
+            margin: 5px 0;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <img src="@Url.Action("ObtenerLogoSitio", "Cliente")" alt="Logo del sitio" class="logo-sitio" style="max-height: 85px; width: auto;" />
+        </div>
+
+        <div class="search-bar">
+            <i class="fas fa-search" style="margin-right:10px; color:black"></i>
+            <input type="text" style="margin-right: 100px; width:300px" placeholder="Buscar...">
+            <button class="btn-buscar" style="margin-left:-90px; color:#adff44"> BUSCAR</button>
+        </div>
+
+        <div class="user-menu">
+            <button class="user-button" onclick="toggleDropdown()">
+                <i class="fas fa-user" style="color:#adff44; margin-right:20px"></i>NOMBRE<i class="fas fa-chevron-down" style="color:#adff44; margin-left:20px"></i>
+            </button>
+            <div id="userDropdown" class="dropdown-content">
+                <a href="#">Mi Cuenta</a>
+                <a href="#">Cerrar Sesión</a>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li>Conciertos</li>
+            <li>Deportes</li>
+            <li>Teatro</li>
+            <li>Comedia</li>
+            <li>Culturales</li>
+            <li>Familiares</li>
+            <li>Congresos</li>
+            <li>Festivales</li>
+        </ul>
+        <div class="nav-right">
+            <a href="#">Puntos de venta</a>
+            <a href="#">Ayuda</a>
+        </div>
+    </nav>
+    <main>
+        <section class="autenticacion-form">
+            <form>
+                <div class="container">
+                    <h1>Pago confirmado</h1>
+                    <div class="icon">
+                        ✔
+                    </div>
+                    <p>¡Gracias por tu compra!</p>
+                    <p>Tu pago ha sido procesado con éxito. Los boletos han sido enviados a tu correo electrónico.</p>
+                    <p>¡Nos vemos en el evento!</p>
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="info">
+            <p>¡Somos <span class="highlight">Tixtly!</span></p>
+            <p>Transferencias Seguras</p>
+            <p>Entradas 100% digitales</p>
+        </div>
+        <div class="contact">
+            <p>Cartago, Costa Rica</p>
+            <p>servicio_alcliente@tixtly.com</p>
+            <p>+506 70-40-65-89</p>
+        </div>
+        <div class="social">
+            <p>Síguenos</p>
+        </div>
+    </footer>
+</body>
+</html>

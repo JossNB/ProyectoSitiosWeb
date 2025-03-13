@@ -1,0 +1,259 @@
+﻿/* Estilos Generales */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: black; /* Fondo general oscuro */
+    color: black; /* Texto en blanco para mayor contraste */
+    text-align: center;
+}
+
+header {
+    background-color: black; /* Un gris oscuro para el encabezado */
+    padding: 10px 0;
+}
+
+.top-nav, nav {
+    display: flex;
+    justify-content: space-around; /* Distribuye el espacio uniformemente */
+    align-items: center;
+    background-color: #adff44; /* Fondo más oscuro para el menú */
+}
+
+    .top-nav .logo {
+        height: 60px; /* Ajusta la altura del logo */
+        width: auto; /* Mantiene la proporción de la imagen */
+        display: block; /* Asegura que la imagen no tenga margen extra alrededor */
+        margin-right: 20px; /* Espacio a la derecha del logo */
+    }
+
+.top-nav {
+    align-items: center; /* Centra verticalmente los elementos del nav */
+    padding: 10px 20px; /* Espacio interior para no pegar los elementos a los bordes */
+}
+
+
+.search-session {
+    flex-grow: 2;
+    display: flex;
+    align-items: center;
+}
+
+    .search-session input[type="text"], .search-session button {
+        padding: 8px 10px;
+        margin: 0 5px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        background: #444; /* Fondo para los elementos de entrada */
+        color: white; /* Texto en blanco */
+    }
+
+    .search-session button {
+        background-color: #adff44; /* Botones destacados en verde */
+        color: black;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .search-session button:hover {
+            background-color: #9ecf3c;
+        }
+
+nav a {
+    color: black;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
+    nav a:hover {
+        background-color: white;
+        color: black;
+    }
+
+/* Estilos para las tarjetas */
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: black;
+}
+
+.card-container {
+    flex-grow: 1; /* Ocupa todo el espacio posible */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: black;
+}
+
+.sidebar {
+    width: 400px; /* Ajusta según la anchura deseada para las tarjetas pequeñas */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: black;
+}
+
+.card, .card.small-card {
+    background-color: #333; /* Fondo oscuro para cada tarjeta */
+    color: black; /* Texto en blanco */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Sombra más oscura para destacar */
+    margin-bottom: 20px;
+    width: 300px; /* Uniform width for all cards */
+}
+
+.card-img {
+    width: 100%; /* Asegura que la imagen cubra toda la anchura de la tarjeta */
+    height: 200px; /* Altura fija para todas las imágenes */
+    object-fit: cover; /* Cubre el área designada sin distorsionar la imagen */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+
+/* Estilos para Tarjetas */
+.card {
+    background-color: #333;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    margin-bottom: 20px;
+    transition: transform 0.5s ease; /* Transición suave para el efecto zoom */
+    overflow: hidden; /* Oculta cualquier parte de la imagen que sobresalga */
+
+
+    display: flex;
+    flex-direction: column; /* Dirección de la flexibilidad */
+    justify-content: space-between; /* Ajusta el contenido para llenar verticalmente toda la tarjeta */
+}
+
+
+
+    .card:hover {
+        transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+    }
+
+.card-content {
+    padding: 15px;
+    background-color: black;
+}
+
+.card button {
+    background-color: #adff44;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px; /* Bordes redondeados para los botones */
+}
+
+    .card button:hover {
+        background-color: #9ecf3c;
+    }
+
+    .card button:hover {
+        background-color: #9ecf3c;
+    }
+
+.carousel-item img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover; /* Asegura que la imagen cubra completamente el área sin deformarse */
+    border-radius: 10px; /* Bordes redondeados para las imágenes */
+    transition: transform 0.5s ease; /* Transición suave para el efecto zoom */
+}
+
+.carousel-item:hover img {
+    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+    border-radius: 10px; /* Consistency with image border radius */
+    padding: 10px; /* Padding for caption */
+    bottom: 20px; /* Positioning the caption slightly above the bottom */
+    right: 20px; /* Aligning the caption to the right */
+    left: auto; /* Overriding default full-width */
+    max-width: 50%; /* Limiting caption width for better layout */
+    transition: background-color 0.5s ease; /* Smooth transition for background color */
+}
+
+
+
+
+.carousel-indicators .active {
+    background-color: #adff44; /* Indicator color when active */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #adff44; /* Green background for arrows */
+    border-radius: 50%; /* Circular background */
+    padding: 10px; /* Sizing the circular background */
+}
+
+
+
+.filter-bar {
+    display: flex;
+    justify-content: left;
+    margin-top: 20px; /* Espacio después del carrusel */
+    padding: 10px 0;
+    background-color: #333; /* Un color de fondo que combine con tu tema */
+}
+
+    .filter-bar select {
+        color: white;
+        background-color: #444; /* Fondo oscuro para los selects */
+        border: 1px solid #adff44; /* Un toque de color */
+        border-radius: 5px;
+        padding: 10px 20px;
+        margin: 0 10px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+        .filter-bar select:hover {
+            background-color: #333; /* Más claro al pasar el mouse */
+        }
+
+    .filter-bar option {
+        background-color: black; /* Fondo para las opciones */
+    }
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #222; /* Oscuro para el footer */
+    color: white;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los items verticalmente */
+}
+
+    .footer-section h5 {
+        margin-bottom: 10px; /* Espacio debajo del título */
+    }
+
+    .footer-section p {
+        margin-bottom: 5px; /* Espacio entre párrafos */
+    }
+
+    .footer-section a {
+        color: white; /* Color de los íconos */
+        font-size: 24px; /* Tamaño de los íconos */
+        padding: 8px;
+        margin: 0 10px; /* Espacio horizontal entre íconos */
+    }
+
+        .footer-section a:hover {
+            color: #adff44; /* Verde claro al pasar el ratón */
+        }
